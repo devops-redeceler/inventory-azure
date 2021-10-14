@@ -53,11 +53,6 @@ $WS.View.ShowGridLines = $false
 $Excel.Save()
 $Excel.Dispose()
 
-$TableStyleEx = if($PlatOS -eq 'PowerShell Desktop'){'Medium1'}else{$TableStyle}
-$TableStyle = if($PlatOS -eq 'PowerShell Desktop'){'Medium15'}else{$TableStyle}
-#$TableStyle = 'Medium22'
-$Font = 'Segoe UI'
-
 $Excel = New-Object -TypeName OfficeOpenXml.ExcelPackage $File
 $Worksheets = $Excel.Workbook.Worksheets | Where-Object { $_.name -notin 'Overview', 'Subscriptions', 'Advisory', 'Security Center' }
 $WS = $Excel.Workbook.Worksheets | Where-Object { $_.Name -eq 'Overview' }
