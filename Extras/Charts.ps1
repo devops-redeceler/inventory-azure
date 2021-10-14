@@ -6,15 +6,10 @@ Module for Main Dashboard
 This script process and creates the Overview sheet. 
 
 .Link
-https://github.com/azureinventory/ARI/Extras/Charts.ps1
+https://github.com/devops-redeceler/inventory-azure/edit/main/Extras/Charts.ps1
 
 .COMPONENT
    This powershell Module is part of Azure Resource Inventory (ARI)
-
-.NOTES
-Version: 2.0.2
-First Release Date: 19th November, 2020
-Authors: Claudio Merola and Renato Gregio 
 
 #>
 param($File, $TableStyle, $PlatOS, $Subscriptions, $Resources, $ExtractionRunTime, $ReportingRunTime)
@@ -95,9 +90,6 @@ Select-Object -Unique 'Name',
 
 $Date = (get-date -Format "MM/dd/yyyy")
 
-$ExtractTime = ($ExtractionRunTime.Totalminutes.ToString('#######.##')+' Minutes')
-$ReportTime = ($ReportingRunTime.Totalminutes.ToString('#######.##')+' Minutes')
-
 $User = $Subscriptions[0].user.name
 $TotalRes = $Resources
 
@@ -176,12 +168,12 @@ $Draw.SetSize(445, 240)
 $Draw.SetPosition(1, 0, 2, 5)
 
 
-$txt = $Draw.RichText.Add('Azure Resource Inventory v2' + "`n")
+$txt = $Draw.RichText.Add('Azure Resource Inventory' + "`n")
 $txt.Size = 14
 $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
 
-$txt = $Draw.RichText.Add('https://github.com/azureinventory/ARI' + "`n" + "`n")
+$txt = $Draw.RichText.Add('https://github.com/devops-redeceler' + "`n" + "`n")
 $txt.Size = 11
 $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
@@ -192,26 +184,6 @@ $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
 
 $txt = $Draw.RichText.Add($Date + "`n")
-$txt.Size = 12
-$txt.ComplexFont = $Font
-$txt.LatinFont = $Font
-
-$txt = $Draw.RichText.Add('Extraction Time: ')
-$txt.Size = 11
-$txt.ComplexFont = $Font
-$txt.LatinFont = $Font
-
-$txt = $Draw.RichText.Add($ExtractTime + "`n")
-$txt.Size = 12
-$txt.ComplexFont = $Font
-$txt.LatinFont = $Font
-
-$txt = $Draw.RichText.Add('Reporting Time: ')
-$txt.Size = 11
-$txt.ComplexFont = $Font
-$txt.LatinFont = $Font
-
-$txt = $Draw.RichText.Add($ReportTime + "`n")
 $txt.Size = 12
 $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
