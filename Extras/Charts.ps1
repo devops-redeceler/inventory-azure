@@ -6,7 +6,7 @@ Module for Main Dashboard
 This script process and creates the Overview sheet. 
 
 .Link
-https://github.com/devops-redeceler/inventory-azure/edit/main/Extras/Charts.ps1
+https://github.com/devops-redeceler/inventory-azure/main/Extras/Charts.ps1
 
 .COMPONENT
    This powershell Module is part of Azure Resource Inventory (ARI)
