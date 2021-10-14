@@ -6,10 +6,15 @@ Module for Main Dashboard
 This script process and creates the Overview sheet. 
 
 .Link
-https://github.com/devops-redeceler/inventory-azure/main/Extras/Charts.ps1
+https://github.com/azureinventory/ARI/Extras/Charts.ps1
 
 .COMPONENT
    This powershell Module is part of Azure Resource Inventory (ARI)
+
+.NOTES
+Version: 2.0.2
+First Release Date: 19th November, 2020
+Authors: Claudio Merola and Renato Gregio 
 
 #>
 param($File, $TableStyle, $PlatOS, $Subscriptions, $Resources, $ExtractionRunTime, $ReportingRunTime)
@@ -53,6 +58,11 @@ $WS.View.ShowGridLines = $false
 $Excel.Save()
 $Excel.Dispose()
 
+$TableStyleEx = if($PlatOS -eq 'PowerShell Desktop'){'Medium1'}else{$TableStyle}
+$TableStyle = if($PlatOS -eq 'PowerShell Desktop'){'Medium15'}else{$TableStyle}
+#$TableStyle = 'Medium22'
+$Font = 'Segoe UI'
+
 $Excel = New-Object -TypeName OfficeOpenXml.ExcelPackage $File
 $Worksheets = $Excel.Workbook.Worksheets | Where-Object { $_.name -notin 'Overview', 'Subscriptions', 'Advisory', 'Security Center' }
 $WS = $Excel.Workbook.Worksheets | Where-Object { $_.Name -eq 'Overview' }
@@ -84,6 +94,9 @@ Select-Object -Unique 'Name',
 
 
 $Date = (get-date -Format "MM/dd/yyyy")
+
+$ExtractTime = ($ExtractionRunTime.Totalminutes.ToString('#######.##')+' Minutes')
+$ReportTime = ($ReportingRunTime.Totalminutes.ToString('#######.##')+' Minutes')
 
 $User = $Subscriptions[0].user.name
 $TotalRes = $Resources
@@ -163,12 +176,12 @@ $Draw.SetSize(445, 240)
 $Draw.SetPosition(1, 0, 2, 5)
 
 
-$txt = $Draw.RichText.Add('Azure Resource Inventory' + "`n")
+$txt = $Draw.RichText.Add('Azure Resource Inventory v2' + "`n")
 $txt.Size = 14
 $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
 
-$txt = $Draw.RichText.Add('https://github.com/devops-redeceler' + "`n" + "`n")
+$txt = $Draw.RichText.Add('https://github.com/azureinventory/ARI' + "`n" + "`n")
 $txt.Size = 11
 $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
@@ -179,6 +192,26 @@ $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
 
 $txt = $Draw.RichText.Add($Date + "`n")
+$txt.Size = 12
+$txt.ComplexFont = $Font
+$txt.LatinFont = $Font
+
+$txt = $Draw.RichText.Add('Extraction Time: ')
+$txt.Size = 11
+$txt.ComplexFont = $Font
+$txt.LatinFont = $Font
+
+$txt = $Draw.RichText.Add($ExtractTime + "`n")
+$txt.Size = 12
+$txt.ComplexFont = $Font
+$txt.LatinFont = $Font
+
+$txt = $Draw.RichText.Add('Reporting Time: ')
+$txt.Size = 11
+$txt.ComplexFont = $Font
+$txt.LatinFont = $Font
+
+$txt = $Draw.RichText.Add($ReportTime + "`n")
 $txt.Size = 12
 $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
