@@ -6,15 +6,15 @@ Module for Subscriptions
 This script process and creates the Subscriptions sheet based on resources and subscriptions the resources belong. 
 
 .Link
-https://github.com/azureinventory/ARI/Extras/Subscriptions.ps1
+https://github.com/devops-redeceler/inventory-azure/Extras/Subscriptions.ps1
 
 .COMPONENT
    This powershell Module is part of Azure Resource Inventory (ARI)
 
 .NOTES
 Version: 2.0.0
-First Release Date: 19th November, 2020
-Authors: Claudio Merola and Renato Gregio 
+
+ 
 
 #>
 param($Subscriptions,$resources, $Task ,$File, $Sub, $TableStyle)

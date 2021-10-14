@@ -6,15 +6,15 @@ Diagram Module for Microsoft Visio
 This script process and creates a Visio Diagram based on resources present in the extraction variable $Resources. 
 
 .Link
-https://github.com/azureinventory/ARI/Extras/Diagram.ps1
+https://github.com/devops-redeceler/inventory-azure/Extras/Diagram.ps1
 
 .COMPONENT
    This powershell Module is part of Azure Resource Inventory (ARI)
 
 .NOTES
 Version: 2.0.2
-First Release Date: 19th November, 2020
-Authors: Claudio Merola and Renato Gregio 
+
+ 
 
 #>
 param($Subscriptions, $Resources, $Advisories, $DFile)

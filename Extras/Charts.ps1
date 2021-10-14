@@ -6,15 +6,15 @@ Module for Main Dashboard
 This script process and creates the Overview sheet. 
 
 .Link
-https://github.com/azureinventory/ARI/Extras/Charts.ps1
+https://github.com/devops-redeceler/inventory-azure/Extras/Charts.ps1
 
 .COMPONENT
    This powershell Module is part of Azure Resource Inventory (ARI)
 
 .NOTES
 Version: 2.0.2
-First Release Date: 19th November, 2020
-Authors: Claudio Merola and Renato Gregio 
+
+ 
 
 #>
 param($File, $TableStyle, $PlatOS, $Subscriptions, $Resources, $ExtractionRunTime, $ReportingRunTime)
@@ -176,7 +176,7 @@ $Draw.SetSize(445, 240)
 $Draw.SetPosition(1, 0, 2, 5)
 
 
-$txt = $Draw.RichText.Add('Azure Resource Inventory' + "`n")
+$txt = $Draw.RichText.Add('Azure Resource Inventory v2' + "`n")
 $txt.Size = 14
 $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
