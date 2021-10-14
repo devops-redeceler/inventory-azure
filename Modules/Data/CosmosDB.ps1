@@ -7,15 +7,15 @@ This script consolidates information for all microsoft.documentdb/databaseaccoun
 Excel Sheet Name: CosmosDB
 
 .Link
-https://github.com/azureinventory/ARI/Modules/Data/CosmosDB.ps1
+https://github.com/devops-redeceler/inventory-azure/Modules/Data/CosmosDB.ps1
 
 .COMPONENT
-   This powershell Module is part of Azure Resource Inventory (ARI)
+   This powershell Module is part of Azure Resource Inventory
 
 .NOTES
 Version: 2.0.0
-First Release Date: 19th November, 2020
-Authors: Claudio Merola and Renato Gregio 
+ 
+ 
 
 #>
 

@@ -7,15 +7,13 @@ This script consolidates information for all microsoft.containerservice/managedc
 Excel Sheet Name: AKS
 
 .Link
-https://github.com/azureinventory/ARI/Modules/Compute/AKS.ps1
+https://github.com/devops-redeceler/inventory-azure/Modules/Compute/AKS.ps1
 
 .COMPONENT
-   This powershell Module is part of Azure Resource Inventory (ARI)
+   This powershell Module is part of Azure Resource Inventory
 
 .NOTES
 Version: 2.0.1
-First Release Date: 19th November, 2020
-Authors: Claudio Merola and Renato Gregio 
 
 #>
 
