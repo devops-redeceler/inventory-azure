@@ -17,7 +17,7 @@ Version: 2.0.2
  
 
 #>
-param($File, $TableStyle, $PlatOS, $Subscriptions, $Resources, $ExtractionRunTime, $ReportingRunTime)
+param($File, $TableStyle, $PlatOS, $Subscriptions, $Resources)
 
 $Excel = New-Object -TypeName OfficeOpenXml.ExcelPackage $File
 $Worksheets = $Excel.Workbook.Worksheets
@@ -94,9 +94,6 @@ Select-Object -Unique 'Name',
 
 
 $Date = (get-date -Format "MM/dd/yyyy")
-
-$ExtractTime = ($ExtractionRunTime.Totalminutes.ToString('#######.##')+' Minutes')
-$ReportTime = ($ReportingRunTime.Totalminutes.ToString('#######.##')+' Minutes')
 
 $User = $Subscriptions[0].user.name
 $TotalRes = $Resources
