@@ -173,7 +173,7 @@ $Draw.SetSize(445, 240)
 $Draw.SetPosition(1, 0, 2, 5)
 
 
-$txt = $Draw.RichText.Add('Azure Resource Inventory v2' + "`n")
+$txt = $Draw.RichText.Add('Azure Resource Inventory' + "`n")
 $txt.Size = 14
 $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
@@ -189,26 +189,6 @@ $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
 
 $txt = $Draw.RichText.Add($Date + "`n")
-$txt.Size = 12
-$txt.ComplexFont = $Font
-$txt.LatinFont = $Font
-
-$txt = $Draw.RichText.Add('Extraction Time: ')
-$txt.Size = 11
-$txt.ComplexFont = $Font
-$txt.LatinFont = $Font
-
-$txt = $Draw.RichText.Add($ExtractTime + "`n")
-$txt.Size = 12
-$txt.ComplexFont = $Font
-$txt.LatinFont = $Font
-
-$txt = $Draw.RichText.Add('Reporting Time: ')
-$txt.Size = 11
-$txt.ComplexFont = $Font
-$txt.LatinFont = $Font
-
-$txt = $Draw.RichText.Add($ReportTime + "`n")
 $txt.Size = 12
 $txt.ComplexFont = $Font
 $txt.LatinFont = $Font
